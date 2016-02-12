@@ -1,0 +1,31 @@
+from numpy import *
+import matplotlib.pyplot as plt
+g= 9.8
+m= 68.1
+c= 12.5
+salto=2
+vi=0
+x=[]
+y1=[]
+y2=[]
+
+e=2.72
+for i in range (60):
+    v1=(g*m/c)*(1-pow(e,-(c/m)*i))
+    v2=vi + (g-((c*vi)/m))*((i+salto)-i)
+    vi=v2
+    if(i==0):
+        print(0,0)
+    print((i+1)*2,v2)
+    x.append(i)
+    y1.append(v1)
+    y2.append(v2)
+plt.plot(x,y1)
+plt.hold(True)
+plt.grid(True)
+plt.plot(x,y2,'k--')
+plt.legend( ('Analitico','Metodico'), loc = 'under right')
+plt.title("Caida Libre")
+plt.xlabel("Velocidad") 
+plt.ylabel("Tiempo") 
+plt.show()

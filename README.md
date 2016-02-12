@@ -1,12 +1,5 @@
-﻿# Metodos-Numericos
-Trabajos de métodos numericos
-HOLA PUTOS PRUEBA UNO 111111
-1
-1
+﻿Laboratorios De Metodos Numerico
 
-1
-1
-1
-1
-1
+Se realizaron con Python 3.5 usando el IDE Anaconda de 64 bits
+
 
