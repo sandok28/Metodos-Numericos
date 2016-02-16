@@ -1,0 +1,51 @@
+from numpy import *
+import matplotlib.pyplot as plt
+g= 9.8
+m= 68.1
+c= 12.5
+salto=2
+vi=0
+x=[]
+y1=[]
+y2=[]
+erroverdadero=0
+errorrelativoverdadero=0
+errorrelativoaproximado=0;
+v2a=0;
+vx=0
+
+e=2.72
+for i in range (60):
+    v1=(g*m/c)*(1-pow(e,-(c/m)*2*i))
+    v2=vi + (g-((c*vi)/m))*((i+salto)-i)
+   
+    
+   
+    if(i==0):
+        
+       
+        print("{0:5} | {1:5} | {2:5} | {3:5}   | {4:5} | {5:5}".format("Tiempo","V Analitica","V Aproximado","E verdadero","E Relativo Verdadero","E Relativo"));
+     
+    else :
+        
+        erroverdadero=v1-vi
+        errorrelativoverdadero=erroverdadero*100/vi
+        errorrelativoaproximado=(vi-v2a)*100/vi
+        print ("{0:5} | {1:5} | {2:5} | {3:5}   | {4:5} | {5:5}".format((i*2),v1,vi,erroverdadero,errorrelativoverdadero,errorrelativoaproximado));
+        v2a=vi
+        
+        x.append(i)
+        y1.append(errorrelativoverdadero*(-1))
+        y2.append(errorrelativoaproximado)
+    vi=v2
+     
+plt.plot(x,y1,'R')
+plt.hold(True)
+plt.grid(True)
+
+plt.plot(x,y2,'k--')
+plt.legend( ('E verdadero','E aproximado'), loc = 'lower right')
+plt.title("Caida Libre")
+plt.xlabel("Tiempo") 
+plt.ylabel("Velocidad") 
+plt.show()
